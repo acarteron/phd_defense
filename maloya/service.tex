@@ -1,0 +1,105 @@
+\begin{frame}[fragile]{Définition d'un service}
+  \begin{coloredbox}[black]{Syntaxe textuelle}
+  \begin{figure}[h]
+    \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      { ( !\colorbox{black!5}{freezer becomes open}! !\colorbox{black!5}{precedes within 10 minutes}! !\colorbox{black!5}{stove becomes on}! )
+        !\colorbox{black!5}{or}!
+        ( !\colorbox{black!5}{freezer becomes open}! !\colorbox{black!5}{occurs while}! !\colorbox{black!5}{stove is on}! ) 
+      } !\colorbox{black!5}{occurs while}! !\colorbox{black!5}{lunchTime}!
+    \end{lstlisting}
+    % \caption{Code Maloya textuel pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+ \begin{coloredbox}[black]{Syntaxe abstraite}
+  \begin{figure}[!h]
+    \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      !\colorbox{black!5}{Occurs}!( !\colorbox{black!5}{Or}!(
+        !\colorbox{black!5}{Precedes\_less(10min)}!( !\colorbox{black!5}{freezer => open}!, !\colorbox{black!5}{stove => on}!),
+        !\colorbox{black!5}{Occurs}!( !\colorbox{black!5}{freezer => open}!, !\colorbox{black!5}{stove = on}!)),
+      !\colorbox{black!5}{lunchTime}!)
+    \end{lstlisting}
+    %\caption{Code Maloya interne pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+\end{frame}
+
+\begin{frame}[fragile]{Définition d'un service}
+\addtocounter{framenumber}{-1}
+
+  \begin{coloredbox}[black]{Syntaxe textuelle}
+  \begin{figure}[h]
+    \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      { ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{black!5}{precedes within 10 minutes}! !\colorbox{checked!50}{stove becomes on}! )
+        !\colorbox{black!5}{or}!
+        ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{black!5}{occurs while}! !\colorbox{black!5}{stove is on}! ) 
+      } !\colorbox{black!5}{occurs while}! !\colorbox{black!5}{lunchTime}!
+    \end{lstlisting}
+    % \caption{Code Maloya textuel pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+ \begin{coloredbox}[black]{Syntaxe abstraite}
+  \begin{figure}[!h]
+    \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      !\colorbox{black!5}{Occurs}!( !\colorbox{black!5}{Or}!(
+        !\colorbox{black!5}{Precedes\_less(10min)}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{checked!50}{stove => on}!),
+        !\colorbox{black!5}{Occurs}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{black!5}{stove = on}!)),
+      !\colorbox{black!5}{lunchTime}!)
+    \end{lstlisting}
+    %\caption{Code Maloya interne pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+\end{frame}
+
+\begin{frame}[fragile]{Définition d'un service}
+\addtocounter{framenumber}{-1}
+
+  \begin{coloredbox}[black]{Syntaxe textuelle}
+  \begin{figure}[h]
+    \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      { ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{black!5}{precedes within 10 minutes}! !\colorbox{checked!50}{stove becomes on}! )
+        !\colorbox{black!5}{or}!
+        ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{black!5}{occurs while}! !\colorbox{black!50}{stove is on}! ) 
+      } !\colorbox{black!5}{occurs while}! !\colorbox{black!50}{lunchTime}!
+    \end{lstlisting}
+    % \caption{Code Maloya textuel pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+ \begin{coloredbox}[black]{Syntaxe abstraite}
+  \begin{figure}[!h]
+    \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      !\colorbox{black!5}{Occurs}!( !\colorbox{black!5}{Or}!(
+        !\colorbox{black!5}{Precedes\_less(10min)}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{checked!50}{stove => on}!),
+        !\colorbox{black!5}{Occurs}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{black!50}{stove = on}!)),
+      !\colorbox{black!50}{lunchTime}!)
+    \end{lstlisting}
+    %\caption{Code Maloya interne pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+\end{frame}
+
+\begin{frame}[fragile]{Définition d'un service}
+\addtocounter{framenumber}{-1}
+
+  \begin{coloredbox}[black]{Syntaxe textuelle}
+  \begin{figure}[h]
+    \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      { ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{teal!50}{precedes within 10 minutes}! !\colorbox{checked!50}{stove becomes on}! )
+        !\colorbox{teal!50}{or}!
+        ( !\colorbox{checked!50}{freezer becomes open}! !\colorbox{teal!50}{occurs while}! !\colorbox{black!50}{stove is on}! ) 
+      } !\colorbox{teal!50}{occurs while}! !\colorbox{black!50}{lunchTime}!
+    \end{lstlisting}
+    % \caption{Code Maloya textuel pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+ \begin{coloredbox}[black]{Syntaxe abstraite}
+  \begin{figure}[!h]
+    \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\footnotesize,escapechar=!]
+      !\colorbox{teal!50}{Occurs}!( !\colorbox{teal!50}{Or}!(
+        !\colorbox{teal!50}{Precedes\_less(10min)}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{checked!50}{stove => on}!),
+        !\colorbox{teal!50}{Occurs}!( !\colorbox{checked!50}{freezer => open}!, !\colorbox{black!50}{stove = on}!)),
+      !\colorbox{black!50}{lunchTime}!)
+    \end{lstlisting}
+    %\caption{Code Maloya interne pour le service ``Lunch Reheat''.}
+  \end{figure}
+\end{coloredbox}
+\end{frame}

@@ -1,0 +1,110 @@
+\section{Analyse de domaine}
+% \begin{frame}{Analyse de domaine}
+% À partir de l'activité:
+% \begin{itemize}
+% \item Étude de scénarios.
+% \item Définition de la sensibilité au contexte.
+% \end{itemize}
+% \end{frame}
+\begin{frame}{Expérimentation écologique à large échelle}
+\onslide<1->{
+\begin{coloredbox}[black]{Domassist}
+Déploiement~:
+  \begin{itemize}
+  \item 12 mois.
+  \item 129 personnes vivant seules.
+  \item 82 ans en moyenne.
+  \end{itemize}
+
+%% Avantage d'un déploiement large échelle:
+ %  \begin{itemize}
+ %  \item Seniors avec troubles cognitifs implique un éventail de services.
+ %  \item Étude à long terme implique de la réactivité de la maintenance.
+ %  \item Déploiement large échelle nécessite des services d'administration.
+ %  %\item Les services déployés couvrent l'ensemble des besoins de l'assistance domiciliaire (assistance, maintenance, $\dots$)
+ %  \end{itemize}
+\end{coloredbox}
+}
+\vfill
+\onslide<2->{
+%\begin{coloredbox}[blue]{}
+\centering
+Différents services déployés (assistance, maintenance, $\dots$).
+%\end{coloredbox}
+}
+\end{frame}
+
+\input{domain/scenarios}
+
+\begin{frame}{Concepts spécifiques au domaine}
+\onslide<1->{
+\begin{minipage}{.45\linewidth}
+\begin{coloredbox}[checked]{Évènement}
+\footnotesize
+Changement de valeur pour \\une entité mesurée, à un instant donné.
+\end{coloredbox}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\linewidth}
+\begin{coloredbox}[darkgray]{État}
+\footnotesize
+Valeur persistante durant une période. \\Commence à un instant donné, \\termine à un instant donné.
+\end{coloredbox}
+\end{minipage}
+}
+  % \begin{itemize}
+  % \item\colorbox{checked!10}{Évènement}~: changement de valeur pour une entité mesurée, à un instant donné
+  % \item \colorbox{blue!5}{États}~: valeur persistante durant une période. Commence à un instant donné, termine à un instant donné.
+  % \end{itemize}
+\vfill
+\onslide<2->{
+\begin{coloredbox}[red]{Besoins communs}
+  \begin{itemize}
+  \item Couvrir les différents objectifs.
+  \item Couvrir l'hétérogénéité des données.
+  \item Récurrences des interactions dans le flux d'évènements.
+  \item Expressivité temporelle adaptée au domaine.
+  \item Réactivité des services.
+  \end{itemize}
+\end{coloredbox}
+}
+% Besoins communs:
+%   \begin{itemize}
+%   \item Réactivité des services.
+%   \item Couvrir les différents objectifs.
+%   \item Couvrir l'hétérogénéité des données.
+%   \item Récurrences des interactions dans le flux d'évènements.
+%   \item Expressivité temporelle.
+%   \end{itemize}
+\end{frame}
+
+\input{domain/sensibilite}
+% **********************************************
+
+
+\subsection{Synthèse}
+\begin{frame}{Synthèse}
+  \begin{minipage}[t]{0.3\linewidth}
+    \begin{figure}
+      \includegraphics[scale=0.3]{synthese_domain.png}
+    \end{figure}
+  \end{minipage}
+  \begin{minipage}[t]{0.68\linewidth}
+    %Besoins:
+    \begin{itemize}
+      \item Concepts spécifiques au domaine.
+      \item Expressivité des services.
+    \end{itemize}
+    \begin{questionbox}
+      Comment couvrir les besoins \\d'expressivité de services sensibles au contexte?
+    \end{questionbox}
+    \vfill
+    \begin{itemize}
+      \item Implantation de la sensibilité au contexte.
+      \item Modèle implicite.%Fiabilité de la sensibilité au contexte.
+    \end{itemize}
+    \begin{questionbox}
+      Comment rendre explicite le modèle implicite, basé sur les hypothèses?
+    \end{questionbox}
+  \end{minipage}
+\end{frame}

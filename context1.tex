@@ -1,0 +1,139 @@
+\begin{frame}{Rendre explicite le modèle implicite}
+  \begin{minipage}{0.3\linewidth}
+      \begin{figure}
+        \includegraphics[scale=0.15]{use_case1.png}
+      \end{figure}
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.65\linewidth}
+    %\vspace*{-25.9mm}
+    \begin{coloredbox}[black]{Dépendance de présence}
+      \footnotesize
+      Chaque interaction (sauf présence) doit être recouverte par une interaction de présence.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+        ~\\
+        ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+    \begin{coloredbox}[black]{Non ubiquité}
+      \footnotesize
+      Une présence ne peut pas être simultanément détectée dans deux endroits différents.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+         ~\\ 
+         ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Rendre explicite le modèle implicite}
+  \addtocounter{framenumber}{-1}
+  \begin{minipage}{0.3\linewidth}
+      \begin{figure}
+        \includegraphics[scale=0.15]{use_case_issue_1.png}
+      \end{figure}
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.65\linewidth}
+    %\vspace*{-25.9mm}
+    \begin{coloredbox}[black]{Dépendance de présence}
+      \footnotesize
+      Chaque interaction (sauf présence) doit être recouverte par une interaction de présence.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+        ~\\
+        ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+    \begin{coloredbox}[black]{Non ubiquité}
+      \footnotesize
+      Une présence ne peut pas être simultanément détectée dans deux endroits différents.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+         ~\\ 
+         ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Rendre explicite le modèle implicite}
+  \addtocounter{framenumber}{-1}
+  \begin{minipage}{0.3\linewidth}
+      \begin{figure}
+        \includegraphics[scale=0.15]{use_case_issue_2.png}
+      \end{figure}
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.65\linewidth}
+    %\vspace*{-25.9mm}
+    \begin{coloredbox}[black]{Dépendance de présence}
+      \footnotesize
+      Chaque interaction (sauf présence) doit être recouverte par une interaction de présence.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+        ~\\
+        ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+    \begin{coloredbox}[black]{Non ubiquité}
+      \footnotesize
+      Une présence ne peut pas être simultanément détectée dans deux endroits différents.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+         ~\\ 
+         ~
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Rendre explicite le modèle implicite~: Modèle d'infrastructure}
+  \addtocounter{framenumber}{-1}
+  \begin{minipage}{0.3\linewidth}
+      \begin{figure}
+        \includegraphics[scale=0.15]{use_case_final.png}
+      \end{figure}
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.65\linewidth}
+    \begin{coloredbox}[black]{Dépendance de présence}
+      \footnotesize
+      Chaque interaction (sauf présence) doit être recouverte par une interaction de présence.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+          \forall~<k, Kitchen, p>~\in~Log, k \neq Presence~ \Rightarrow \\
+          ~~~~\exists~ <Presence, Kitchen, p'>~\in~Log,~p \subseteq p' 
+        \end{array}
+      \end{displaymath}
+    \end{coloredbox}
+    \begin{coloredbox}[black]{Non ubiquité}
+      \footnotesize
+      Une présence ne peut pas être simultanément détectée dans deux endroits différents.
+      \small
+      \begin{displaymath}
+        \begin{array}{c}
+          \forall~<Presence, l, p>~\in~Log \Rightarrow \\
+          ~~~~\nexists~ <Presence, l', p'>~\in~Log,~l \neq l' \wedge ~p' \cap p \neq \emptyset
+        \end{array}
+      \end{displaymath}
+
+    \end{coloredbox}
+  \end{minipage}
+\end{frame}
+% **********************************************

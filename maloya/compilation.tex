@@ -1,0 +1,333 @@
+\begin{frame}[fragile]{Étapes de compilation}
+  \begin{minipage}{.45\linewidth}
+    %\begin{minipage}[t]{.6\linewidth}
+      \vspace*{-34.28mm}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{black!5}{Precedes}!_!\colorbox{black!5}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!5}{lunchTime}!)
+     \end{lstlisting}
+\end{coloredbox}
+   %\end{minipage}
+   \vfill
+   %\begin{minipage}[t]{.6\linewidth}
+   %\end{minipage}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{.52\linewidth}
+   \begin{tiny}
+   \end{tiny}
+ \end{minipage}
+\end{frame}
+%*******************************************************************
+
+\begin{frame}[fragile]{Étapes de compilation~: Vers Pseudo-code EPL}
+  \begin{minipage}{.45\linewidth}
+\vspace*{3.4mm}
+    %\begin{minipage}[t]{.6\linewidth}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{black!5}{Precedes}!_!\colorbox{black!5}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!5}{lunchTime}!)
+     \end{lstlisting}
+\end{coloredbox}
+   %\end{minipage}
+   \vfill
+   %\begin{minipage}[t]{.6\linewidth}
+            \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+     \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{black!5}{stove => on}! 
+  and not (freezer=>open)!\colorbox{black!5}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!5}{lunchTime=>begin}! ->
+  !\colorbox{black!5}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!5}{{\bf {\it and not}} lunchTime=>end }!
+     \end{lstlisting}
+\end{coloredbox}
+   %\end{minipage}
+ \end{minipage}
+ \hfill
+ \begin{minipage}{.52\linewidth}
+ \end{minipage}
+\end{frame}
+%*******************************************************************
+
+\begin{frame}[fragile]{Étapes de compilation~: Vers Pseudo-code EPL}
+\addtocounter{framenumber}{-1}
+\vspace*{3.4mm}
+  \begin{minipage}{.45\linewidth}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{black!5}{Precedes}!_!\colorbox{black!5}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!50}{lunchTime}!)
+      \end{lstlisting}
+\end{coloredbox}
+    %\end{minipage}
+    \vfill
+    %\begin{minipage}[t]{.6\linewidth}
+            \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+      \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{black!5}{stove => on}! 
+  and not (freezer=>open)!\colorbox{black!5}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!50}{lunchTime=>begin}! ->
+  !\colorbox{black!5}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+      \end{lstlisting}
+\end{coloredbox}
+    %\end{minipage}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.52\linewidth}
+    \vspace*{-69.1mm}
+    \begin{tiny}
+      \colorbox{black!50}{Gestion des états}
+    \end{tiny}
+  \end{minipage}
+\end{frame}
+%*******************************************************************
+
+\begin{frame}[fragile]{Étapes de compilation~: Vers Pseudo-code EPL}
+\addtocounter{framenumber}{-1}
+\vspace*{3.4mm}
+  \begin{minipage}{.45\linewidth}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{teal!50}{Precedes}!_!\colorbox{black!5}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!50}{lunchTime}!)
+      \end{lstlisting}
+\end{coloredbox}
+    \vfill
+            \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+      \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{black!5}{stove => on}! 
+  and not (freezer=>open)!\colorbox{black!5}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!50}{lunchTime=>begin}! ->
+  !\colorbox{teal!50}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+      \end{lstlisting}
+\end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.52\linewidth}
+    \vspace*{-68.7mm}
+    \begin{tiny}
+      \colorbox{black!50}{Gestion des états},\colorbox{teal!50}{Composition}
+    \end{tiny}
+  \end{minipage}
+\end{frame}
+%*******************************************************************
+
+\begin{frame}[fragile]{Étapes de compilation~: Vers Pseudo-code EPL}
+\addtocounter{framenumber}{-1}
+  \begin{minipage}{.45\linewidth}
+    %\begin{minipage}[t]{.6\linewidth}
+\vspace*{3.4mm}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{teal!50}{Precedes}!_!\colorbox{checked!50}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!50}{lunchTime}!)
+      \end{lstlisting}
+\end{coloredbox}
+    %\end{minipage}
+    \vfill
+    %\begin{minipage}[t]{.6\linewidth}
+            \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+      \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{black!5}{stove => on}! 
+  and not (freezer=>open)!\colorbox{checked!50}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!50}{lunchTime=>begin}! ->
+  !\colorbox{teal!50}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+      \end{lstlisting}
+\end{coloredbox}
+    %\end{minipage}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.52\linewidth}
+    \vspace*{-65.3mm}
+    \begin{tiny}
+      \colorbox{black!50}{Gestion des états},\colorbox{teal!50}{Composition},\colorbox{checked!50}{Timer explicites}
+    \end{tiny}
+
+  \end{minipage}
+\end{frame}
+%*******************************************************************
+
+\begin{frame}[fragile]{Étapes de compilation~: Vers EPL Esper}
+  \begin{minipage}{.45\linewidth}
+    %\begin{minipage}[t]{.6\linewidth}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{teal!50}{Precedes}!_!\colorbox{checked!50}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{black!5}{stove=>on}!),
+       !\colorbox{black!50}{lunchTime}!)
+        \end{lstlisting}
+\end{coloredbox}
+ % \end{minipage}
+\vfill
+  %\begin{minipage}[t]{.6\linewidth}
+        \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+      \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{black!5}{stove => on}! 
+  and not (freezer=>open)!\colorbox{checked!50}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!50}{lunchTime=>begin}! ->
+  !\colorbox{teal!50}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+      \end{lstlisting}
+\end{coloredbox}
+    %\end{minipage}
+  \end{minipage}
+\hfill
+\begin{minipage}{.52\linewidth}
+   \begin{tiny}
+    \colorbox{black!50}{Gestion des états},\colorbox{teal!50}{Composition},\colorbox{checked!50}{Timer explicites}
+  \end{tiny}
+  \begin{coloredbox}[black]{\tiny EPL Esper~:}
+     \begin{lstlisting}[language=EPL,basicstyle=\ttfamily\tiny,escapechar=|]
+create window Wind.std:unique(location,kind,user) 
+select * from StreamEvent 
+
+insert into Wind select arg from pattern [ 
+  (every arg=StreamEvent(location=`Kitchen',
+                         kind=`Freezer',status=`open') ->
+     |\colorbox{black!5}{StreamEvent(location=`Kitchen',kind=`Stove',}|
+                 |\colorbox{black!5}{status=`on',user=arg.user)}|
+     and not (StreamEvent(location=`Kitchen',kind=`Freezer',
+                          status=`open',user=arg.user)) 
+     where timer:within (10min) ) ]
+
+select Cal_L_b,arg from pattern [ 
+  every Cal_L_b= StreamEvent(location=`Lunch',kind=`Calendar',
+                             status!=`end') ->
+    arg=Wind(timestamp>Cal_L_b.timestamp,user=Cal_L_b.user) 
+    and not StreamEvent(location=`Lunch',kind=`Calendar',
+                           status=`end',user=Cal_L_b.user) ]
+    \end{lstlisting}
+\end{coloredbox}
+\end{minipage}
+\end{frame}
+%*******************************************************************
+\begin{frame}[fragile]{Étapes de compilation~: Vers EPL Esper}
+\addtocounter{framenumber}{-1}
+  \begin{minipage}{.45\linewidth}
+    %\begin{minipage}[t]{.6\linewidth}
+      \begin{coloredbox}[black]{\tiny Syntaxe abstraite~:}
+      \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+Occurs(!\colorbox{teal!50}{Precedes}!_!\colorbox{checked!50}{{\bf less(}10min{\bf )}}!(freezer=>open,
+                                !\colorbox{red!30}{stove=>on}!),
+       !\colorbox{black!50}{lunchTime}!)
+        \end{lstlisting}
+      \end{coloredbox}
+     % \end{minipage}
+      \vfill
+      %\begin{minipage}[t]{.6\linewidth}
+        \begin{coloredbox}[black]{\tiny Pseudo-code EPL~:}
+          \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+//Window1
+( every freezer => open -> !\colorbox{red!30}{stove => on}!
+  and not (freezer=>open)!\colorbox{checked!50}{{\bf where timer:within(}10min{\bf )}}!) 
+
+every !\colorbox{black!50}{lunchTime=>begin}! ->
+  !\colorbox{teal!50}{Window1}!(timestamp > (lunchTime=>begin).timestamp)
+  !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+\end{lstlisting}
+\end{coloredbox}
+   % \end{minipage}
+  \end{minipage}
+\hfill
+\begin{minipage}{.52\linewidth}
+   \begin{tiny}
+    \colorbox{black!50}{Gestion des états},\colorbox{teal!50}{Composition},\colorbox{checked!50}{Timer explicites},\colorbox{red!30}{évènements}
+  \end{tiny}
+  \begin{coloredbox}[black]{\tiny EPL Esper~:}
+   \begin{lstlisting}[language=EPL,basicstyle=\ttfamily\tiny,escapechar=|]
+create window Wind.std:unique(location,kind,user) 
+select * from StreamEvent 
+
+insert into Wind select arg from pattern [ 
+  (every arg=StreamEvent(location=`Kitchen',
+                         kind=`Freezer',status=`open') ->
+     |\colorbox{red!30}{StreamEvent(location=`Kitchen',kind=`Stove',}|
+                 |\colorbox{red!30}{status=`on',user=arg.user)}|
+     and not (StreamEvent(location=`Kitchen',kind=`Freezer',
+                          status=`open',user=arg.user)) 
+     where timer:within (10min) ) ]
+
+select Cal_L_b,arg from pattern [ 
+  every Cal_L_b= StreamEvent(location=`Lunch',kind=`Calendar',
+                             status!=`end') ->
+    arg=Wind(timestamp>Cal_L_b.timestamp,user=Cal_L_b.user) 
+    and not StreamEvent(location=`Lunch',kind=`Calendar',
+                           status=`end',user=Cal_L_b.user) ]
+    \end{lstlisting}
+\end{coloredbox}
+  \end{minipage}
+\end{frame}
+%*******************************************************************
+
+% \begin{frame}[fragile]{Étapes de compilation}
+%   \begin{minipage}[t]{.45\linewidth}
+%     \begin{minipage}[t]{.6\linewidth}
+%       \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\tiny,escapechar=!]
+% Occurs(Precedes_!\colorbox{checked!50}{{\bf less(}10min{\bf )}}!(freezer=>open,stove=>on),
+%        !\colorbox{black!50}{lunchTime}!)
+%         \end{lstlisting}
+%   \end{minipage}
+% \vfill
+%   \begin{minipage}[t]{.6\linewidth}
+%       \begin{lstlisting}[language=EPLPseudoCode,basicstyle=\ttfamily\tiny,escapechar=!]
+% //Window1
+% ( every freezer => open -> stove => on 
+%     and not (freezer=>open)!\colorbox{checked!50}{{\bf where timer:within(}10min{\bf )}}!) 
+
+% every !\colorbox{black!50}{lunchTime=>begin ->}!
+%   !\colorbox{teal!50}{Window1}!( timestamp > (lunchTime=>begin).timestamp )
+%   !\colorbox{black!50}{{\bf {\it and not}} lunchTime=>end }!
+%       \end{lstlisting}
+%     \end{minipage}
+%     \begin{minipage}[t]{.6\linewidth}
+%       \begin{tiny}
+%         \colorbox{black!50}{Gestion des états},\colorbox{checked!50}{Timer explicites},\colorbox{teal!50}{Composition}
+%       \end{tiny}
+%     \end{minipage}
+%   \end{minipage}
+% \hfill
+%  \begin{minipage}[t]{.45\linewidth}
+%    \begin{lstlisting}[language=EPL,basicstyle=\ttfamily\tiny]
+% create window Wind.std:unique(location,kind,user) 
+% select * from StreamEvent 
+
+% insert into Wind select arg from pattern [ 
+%   (every arg=StreamEvent(location='Kitchen',
+%                          kind='Freezer',status='open') ->
+%      StreamEvent(location='Kitchen',kind='Stove',
+%                  status='on',user=arg.user) 
+%      and not (StreamEvent(location='Kitchen',kind='Freezer',
+%                           status='open',user=arg.user)) 
+%      where timer:within (10min) ) ]
+
+% select Cal_L_b,arg from pattern [ 
+%   every Cal_L_b= StreamEvent(location='Lunch',kind='Calendar',
+%                              status!='end') ->
+%     arg=Wind(timestamp>Cal_L_b.timestamp,user=Cal_L_b.user) 
+%     and not StreamEvent(location='Lunch',kind='Calendar',
+%                         status='end',user=Cal_L_b.user)) ]
+% \end{lstlisting}
+%  \end{minipage}
+% \end{frame}
+

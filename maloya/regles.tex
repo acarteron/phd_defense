@@ -1,0 +1,245 @@
+\begin{frame}[fragile]{Langage de règles}
+  \vspace*{-9.65mm}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{black!2}{gets opened} \colorbox{black!2}{and} stove gets turned on \colorbox{black!2}{within 10 minutes} or \\Freezer gets opened during stove \colorbox{black!2}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+  \vfill
+  \begin{minipage}{.31\linewidth}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.31\linewidth} 
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.33\linewidth} 
+    \begin{center}
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Langage de règles}
+  \addtocounter{framenumber}{-1}
+  % \vspace*{-3mm}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{checked!50}{gets opened} \colorbox{black!2}{and} stove gets turned on \colorbox{black!2}{within 10 minutes} or \\Freezer gets opened during stove \colorbox{black!2}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+  \vfill
+  \begin{minipage}{.31\linewidth}
+    \begin{coloredbox}[checked]{Évènement~:}
+      \begin{lstlisting}[language=MaloyaText]
+        //Syntaxe textuelle:
+        freezer becomes open
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya]
+      %   //Syntaxe abstraite:
+      %   freezer => open
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.31\linewidth} 
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.33\linewidth} 
+    \begin{center}
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Langage de règles}
+\addtocounter{framenumber}{-1}
+%\vspace*{-3.mm}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{checked!50}{gets opened} \colorbox{black!2}{and} stove gets turned on \colorbox{black!2}{within 10 minutes} or\\ Freezer gets opened during stove \colorbox{darkgray!50}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+\vfill
+  \begin{minipage}{.31\linewidth}
+    \begin{coloredbox}[checked]{Évènement~:}
+      \begin{lstlisting}[language=MaloyaText]
+        //Syntaxe textuelle:
+        freezer becomes open
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya]
+      %   //Syntaxe abstraite:
+      %   freezer => open
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.31\linewidth}
+    \begin{coloredbox}[darkgray]{État~:}
+      \begin{lstlisting}[language=MaloyaText]
+        //Syntaxe textuelle:
+        stove is on
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya]
+      %   //Syntaxe abstraite:
+      %   stove = on
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.33\linewidth}
+    \begin{center}
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Langage de règles}
+\addtocounter{framenumber}{-1}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{checked!50}{gets opened} \colorbox{black!2}{and} stove gets turned on \colorbox{black!2}{within 10 minutes} or\\ Freezer gets opened during stove \colorbox{darkgray!50}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+\vfill
+  \begin{minipage}{.31\linewidth}
+    \begin{coloredbox}[checked]{Évènement~:}
+      \begin{lstlisting}[language=MaloyaText]
+        //Syntaxe textuelle:
+        freezer becomes open
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya]
+      %   //Syntaxe abstraite:
+      %   freezer => open
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.31\linewidth}
+    \begin{coloredbox}[darkgray]{État~:}
+      \begin{lstlisting}[language=MaloyaText]
+        //Syntaxe textuelle:
+        stove is on
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya]
+      %   //Syntaxe abstraite:
+      %   stove = on
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.33\linewidth}
+  \begin{center}
+    \begin{scriptsize}
+      % \begin{center}
+      \begin{tikzpicture}[node distance=\dx and \dy,
+        >=latex,shorten >=2pt,shorten <=2pt,auto,
+        semithick,initial distance=1cm,
+        every initial by arrow/.style={*->} ]
+        \draw[gray!50,line width=0.1mm,dashed] (-1.5,.5) -- (-1.5,-1.2);
+        \draw[gray!50,line width=0.1mm,dashed] (1.5,.5) -- (1.5,-1.2);  
+        \draw[gray!50,line width=0.1mm,dashed] (-.5,.2) -- (-.5,-1.);
+        \draw[gray!50,line width=0.1mm,dashed] (.5,.2) -- (.5,-1.);  
+        \draw[] (-1.5,.) 
+        % node[xshift=-3.35 cm,yshift=.125cm] { Évènement~:} 
+        %node[xshift=-1.5 cm,yshift=.3cm] { {\tt p {\em becomes} v}} 
+        node[xshift=-1.5 cm,yshift=.1 cm] { $stove~becomes~on$} --(-.5,.)--(-.5,.4) -- (-.5,.) -- (1.5,.);
+        \draw[] (-1.5,-.6) 
+        node[xshift=-.22 cm,yshift=.25cm] { {\tt on}} 
+        node[xshift=-.2 cm,yshift=. cm] { {\tt off}} 
+        node[xshift=-1. cm,yshift=.125 cm] { {\tt stove}} -- (-.5,-.6) -- (-.5,-.2) -- (.5,-.2) -- (.5,-.6) -- (1.5,-.6);
+        \draw[] (-1.5,-1.2) 
+        % node[xshift=-3 cm,yshift=.125cm] { État~:} 
+        %node[xshift=-1.5 cm,yshift=.3cm] { {\tt p {\em is} v}} 
+        node[xshift=-1. cm,yshift=. cm] { $stove~is~on$} -- (-.5,-1.2) -- (-.5,-.8) -- (.5,-.8) -- (.5,-1.2) -- (1.5,-1.2);
+      \end{tikzpicture}
+    \end{scriptsize}
+  \end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Langage de règles}
+  \vspace*{1.4mm}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{black!2}{gets opened} \colorbox{teal!50}{and} stove gets turned on \colorbox{teal!50}{within 10 minutes} or\\ Freezer gets opened during stove \colorbox{black!2}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+  \vfill
+  \begin{minipage}{.55\linewidth}
+    %\vspace*{10.425mm}
+    \begin{coloredbox}[teal]{Opérateur Precedes}
+      \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\scriptsize]
+        //Syntaxe textuelle:
+        ( freezer becomes open precedes 
+        within 10 minutes stove becomes on )
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\scriptsize]
+      %   //Syntaxe abstraite:
+      %   Precedes_less(10min)(freezer=>open,stove=>on)
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.40\linewidth}
+
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Langage de règles}
+  \addtocounter{framenumber}{-1}
+  \vspace*{3.7mm}
+  \begin{coloredbox}[gray]{}
+    \begin{footnotesize}
+      Freezer \colorbox{black!2}{gets opened} \colorbox{teal!50}{and} stove gets turned on \colorbox{teal!50}{within 10 minutes} or\\ Freezer gets opened during stove \colorbox{black!2}{is on}, during lunch time
+    \end{footnotesize}
+  \end{coloredbox}
+  \vfill
+  \begin{minipage}{.55\linewidth}
+    %\vspace*{10mm}
+    \begin{coloredbox}[teal]{Opérateur Precedes}
+      \begin{lstlisting}[language=MaloyaText,basicstyle=\ttfamily\scriptsize]
+        //Syntaxe textuelle:
+        ( freezer becomes open precedes 
+        within 10 minutes stove becomes on )
+      \end{lstlisting}
+      % \begin{lstlisting}[language=Maloya,basicstyle=\ttfamily\scriptsize]
+      %   //Syntaxe abstraite:
+      %   Precedes_less(10min)(freezer=>open,stove=>on)
+      % \end{lstlisting}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.43\linewidth}
+    % \begin{coloredbox}[gray]{}
+    \begin{scriptsize}
+      % Every time {\tt e$_1$} {\em immediately} precedes {\tt e$_2$}\\
+      % \vspace*{3.79mm}
+      \begin{tikzpicture}[node distance=\dx and \dy,
+        >=latex,shorten >=2pt,shorten <=2pt,auto,
+        semithick,initial distance=1cm,
+        every initial by arrow/.style={*->} ]   
+        \draw[gray!50,line width=0.1mm,dashed] (-1.5,.5) -- (-1.5,-1.2);
+        \draw[gray!50,line width=0.1mm,dashed] (1.5,.5) -- (1.5,-1.2);  
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+        \draw[gray!50,line width=0.1mm,dashed] (.5,.) -- (.5,-1.2);   
+        \draw[] (-1.5,.) 
+        node[xshift=-.25 cm,yshift=.125cm] {{\tt e$_1$}}  --(-.5,.)--(-.5,.4) -- (-.5,.) -- (1.5,.);
+        \draw[] (-1.5,-.6) 
+        node[xshift=-.25 cm,yshift=.125cm] {{\tt e$_2$}} -- (.5,-.6) -- (.5,-.2) -- (.5,-.6) -- (1.5,-.6);
+        \draw[] (-1.5,-1.2) 
+        % node[xshift=-4.1 cm,yshift=1.cm] {Every time {\tt e$_1$} {\em immediately} precedes {\tt e$_2$}}
+        % node[xshift=-3. cm,yshift=.25cm] {{\tt e$_1$ {\bf precedes} e$_2$ $\Leftrightarrow$ $Precedes(e_1,e_2)$}}
+        % node[xshift=-6.1 cm,yshift=-.4cm] {Variants:}
+        % node[xshift=-1.85 cm,yshift=-.75cm] {{\tt e$_1$ {\bf precedes within} t e$_2$ $\Leftrightarrow$ $Precedes\_less(t)(e_1,e_2)$}}
+        % node[xshift=-1.85 cm,yshift=-1.1cm] {{\tt e$_1$ {\bf precedes by} t e$_2$ $\Leftrightarrow$ $Precedes\_greater(t)(e_1,e_2)$}}
+        node[xshift=-.7 cm,yshift=.125cm] {{\tt Precedes}} -- (.5,-1.2) -- (.5,-.8) -- (.5,-1.2) -- (1.5,-1.2);
+      \end{tikzpicture}
+
+      Variantes~:
+      \begin{itemize}
+      \item {\tt e$_1$ {\bf precedes within} t e$_2$ }%$\Leftrightarrow$ \\$Precedes\_less(t)(e_1,e_2)$}
+      \item {\tt e$_1$ {\bf precedes by} t e$_2$ }%$\Leftrightarrow$ \\$Precedes\_greater(t)(e_1,e_2)$}
+      \end{itemize}
+    \end{scriptsize}
+    % \end{coloredbox}
+  \end{minipage}
+\end{frame}

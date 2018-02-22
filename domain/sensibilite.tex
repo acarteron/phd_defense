@@ -1,0 +1,157 @@
+\subsection{Définition de la sensibilité au contexte}
+\begin{frame}{Implantation domiciliaire du contexte}
+  \begin{minipage}{.48\linewidth}
+    \begin{coloredbox}[black]{}
+      \begin{scriptsize}
+        Freezer gets opened and stove gets turned on within 10 minutes during lunch time.
+      \end{scriptsize}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.48\linewidth}
+    % \begin{scriptsize}
+    %   a presence in the Bedroom is true and a presence in the Kitchen is true within 10 minutes
+    % \end{scriptsize}
+  \end{minipage}
+  \vfill
+  \begin{minipage}{0.45\linewidth}
+    \begin{coloredbox}[teal]{Préparation du déjeuner}
+\small
+    \begin{itemize}
+    \item Ouvrir la porte du congélateur.
+      \begin{itemize}
+      \item \includegraphics[scale=0.2]{csensor.png} Capteur de contact
+      \end{itemize}
+    \item Allumer le four.
+      \begin{itemize}
+      \item \includegraphics[scale=0.2]{emeter.png} Capteur de consommation électrique.
+      \end{itemize}
+    \end{itemize}
+\end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.50\linewidth}
+    \begin{figure}
+      \includegraphics[scale=0.20]{use_case1.png}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+% **********************************************
+\begin{frame}{Implantation domiciliaire du contexte}
+  \addtocounter{framenumber}{-1}
+\begin{minipage}{.48\linewidth}
+    \begin{coloredbox}[black]{}
+      \begin{scriptsize}
+        Freezer gets opened and stove gets turned on within 10 minutes during lunch time.
+      \end{scriptsize}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.48\linewidth}
+    % \begin{scriptsize}
+    %   a presence in the Bedroom is true and a presence in the Kitchen is true within 10 minutes
+    % \end{scriptsize}
+  \end{minipage}
+  \vfill
+  \begin{minipage}{0.45\linewidth}
+    \begin{coloredbox}[teal]{Préparation du déjeuner}
+\small
+    \begin{itemize}
+    \item Ouvrir la porte du congélateur.
+      \begin{itemize}
+      \item \includegraphics[scale=0.2]{csensor.png} Capteur de contact
+      \end{itemize}
+    \item Allumer le four.
+      \begin{itemize}
+      \item \includegraphics[scale=0.2]{emeter.png} Capteur de consommation électrique.
+      \end{itemize}
+    \end{itemize}
+\end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.50\linewidth}
+    \begin{figure}
+      \includegraphics[scale=0.2]{use_case1_5.png}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+% **********************************************
+\begin{frame}{Implantation domiciliaire du contexte}
+  \addtocounter{framenumber}{-1}
+  \begin{minipage}{.48\linewidth}
+    % \begin{coloredbox}[black]{}
+    %   \begin{scriptsize}
+    %     Freezer gets opened and stove gets turned on within 10 minutes during lunch time
+    %   \end{scriptsize}
+    % \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.48\linewidth}
+    % \vspace*{2.7mm}
+    \begin{coloredbox}[black]{}
+      \begin{scriptsize}
+        A presence in the Bedroom is true then\\ a presence in the Kitchen is true.% within 10 minutes
+      \end{scriptsize}
+    \end{coloredbox}
+  \end{minipage}
+  \vfill
+
+  \begin{minipage}{0.45\linewidth}
+    \begin{coloredbox}[teal]{Lever}
+      \small
+      \begin{itemize}
+      \item Présence dans la cuisine.
+        \begin{itemize}
+        \item \includegraphics[scale=0.2]{mdetect.png} Capteur de mouvement
+        \end{itemize}
+        % \item Allumer le four.
+        %   \begin{itemize}
+        %   \item \includegraphics[scale=0.2]{emeter.png} Capteur de consommation électrique.
+        %   \end{itemize}
+      \end{itemize}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.50\linewidth}
+    \begin{figure}
+      \includegraphics[scale=0.2]{use_case1_2.png}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+% **********************************************
+\begin{frame}{Implantation domiciliaire du contexte}
+  \addtocounter{framenumber}{-1}
+\begin{minipage}{.48\linewidth}
+    \begin{coloredbox}[black]{}
+      \begin{scriptsize}
+        Freezer gets opened and stove gets turned on within 10 minutes during lunch time.
+      \end{scriptsize}
+    \end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.48\linewidth}
+    \begin{coloredbox}[black]{}
+      \begin{scriptsize}
+        A presence in the Bedroom is true then\\ a presence in the Kitchen is true.% within 10 minutes
+      \end{scriptsize}
+    \end{coloredbox}
+  \end{minipage}
+  \vfill
+
+  \begin{minipage}{0.45\linewidth}
+\begin{coloredbox}[teal]{Modèle implicite}
+    %Modèle implicite~:
+\small
+    \begin{itemize}
+    \item Détection de mouvement précède toute autre interaction.
+    \item Une présence dans une pièce ne peut pas recouvrir une présence dans une autre pièce.
+    \end{itemize}
+\end{coloredbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.50\linewidth}
+    \begin{figure}
+      \includegraphics[scale=0.2]{use_case2.png}
+    \end{figure}
+  \end{minipage}
+\end{frame}

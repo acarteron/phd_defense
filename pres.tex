@@ -1,0 +1,365 @@
+\documentclass[french]{beamer16x9}
+\usetheme[progressbar=head,sectionpage=progressbar]{metropolis}
+% \usepackage{amsmath,amssymb,mathrsfs,amsthm}
+% \usepackage[citestyle=verbose]{biblatex}
+\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}		% Fontes modernes pour Adobe. Recommandé
+\usepackage[T1]{fontenc}
+%\usepackage[french]{babel}
+\usepackage{babel}
+%\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendixnumberbeamer}
+% \usepackage{textpos}
+\usepackage{xcolor}
+\usepackage{tikz}
+% \usepackage{pgfplots}
+\usepackage{fancyvrb}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+%\usepackage[dvipsnames]{xcolor}
+
+\usepackage{alltt}
+\usepackage{ mathrsfs }
+\usepackage{ dsfont }
+\usepackage[most]{tcolorbox}
+\usepackage[normalem]{ulem} 
+\usepackage{listings,lstautogobble}
+\usepackage{arydshln}
+
+\usepackage{pifont}
+
+%\usepackage{biblatex}
+\usepackage[
+backend = biber,
+citereset=none,
+%sorting=none,
+%style = debug,
+style = alphabetic-verb,
+dateabbrev = false,
+% dashed = false, % repeat full author names every occurrence
+maxbibnames = 99, % don't use 'et al.' in the Bibliography
+maxcitenames=1,
+citestyle = alphabetic-verb,
+language = british
+]{biblatex}
+\addbibresource{bibliography.bib} 
+% DONE really use biblatex, not the citation hack here
+% https://tex.stackexchange.com/questions/45934/can-i-use-biblatex-with-tufte-classes
+\DeclareBibliographyCategory{fullcited}
+
+\newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
+
+
+
+\newcommand{\CodeSymbolBold}[1]{\textbf{#1}}
+\newcommand{\CodeSymbolIt}[1]{\textit{#1}}
+\usepackage{textcomp}
+
+\usepackage{stmaryrd} % for \llbracket ⟦ in math mode
+\usepackage{MnSymbol}
+\newcommand{\hmmax}{0}
+\newcommand{\bmmax}{0}
+\usepackage{bm}
+%
+
+\usepackage{hyperref} 
+
+\newcommand{\notespeech}[1]{\textcolor{gray}{\small #1}}
+
+\tcbuselibrary{theorems}
+% \usepackage{pgfgantt}
+
+\newcommand\tikzunderline[2]{%
+\tikz[remember picture,overlay]\node[inner sep=-1pt, outer sep=1pt, anchor=south west,opacity=0] (#1) {#2};%
+}
+
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+
+\definecolor{checked}{rgb}{0.20,0.43,0.09}
+\beamertemplatenavigationsymbolsempty
+
+\newenvironment{variableblock}[2]{%
+  \setbeamercolor{block title}{#2}
+  \begin{block}{#1}}{\end{block}}
+
+\newenvironment{fullvariableblock}[4]{%
+  \setbeamercolor{block title}{#2}
+  \setbeamerfont{block title}{#3}
+  \setbeamerfont{block body}{#4}
+  \begin{block}{#1}}{\end{block}}
+
+\usetikzlibrary{shapes.geometric, arrows,automata,positioning}
+
+\graphicspath{{gfx/}}
+
+
+\def\dx{2.5cm} 
+\def\dy{0cm}
+
+\tikzset{
+  state/.style={draw,ellipse}
+}
+
+\newcommand{\newState}[4]{\node[state,#3](#1)[#4]{#2};}
+\newcommand{\newTransition}[4]{\path[->] (#1) edge [#4] node {#3} (#2);} 
+\newcommand{\newTransitionShift}[5]{\path[->] (#1) edge [#4] node[#5] {#3} (#2);} 
+\newcommand{\newTransitionColor}[5]{\path[->,#5] (#1) edge [#4] node {#3} (#2);} 
+
+\setbeamertemplate{bibliography item}[triangle]
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  % \begin{beamercolorbox}{section in head/foot}
+  %   \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  % \end{beamercolorbox}%
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertsectionnavigationhorizontal{\paperwidth}{}{}\vskip2pt
+  \end{beamercolorbox}%
+  \vspace*{-0.1mm}
+}
+\makeatletter
+    \newenvironment{withoutheadline}{
+        %\setbeamertemplate{headline}[default]
+        \setbeamertemplate{section page}[simple]
+        \setbeamercolor{section in head/foot}{bg=black!2,fg=black!2}
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+\setbeamercolor{section in head/foot}{fg=black!25, bg=structure.fg }
+\setbeamerfont{section in head/foot}{size=\tiny}
+
+\tikzstyle{initial} = [ellipse, font=\scriptsize,text centered, draw=black, fill=blue!20]
+\tikzstyle{state} = [ellipse, font=\scriptsize,text centered, draw=black, fill=gray!20]
+\tikzstyle{fail} = [ellipse, font=\scriptsize,text centered, draw=black, fill=red!20]
+\tikzstyle{win} = [ellipse, font=\scriptsize,text centered, draw=black, fill=teal!40]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\newtcolorbox{coloredbox}[2][]{
+  colback=#1!5,
+  colframe=#1!50!white,
+  title=#2,
+  boxrule=0pt,
+  halign=left,
+  frame hidden
+}
+\newtcolorbox{questionbox}{
+  colback=red!45,
+  %colframe=red!50!white,
+  %title=#1,
+  boxrule=0pt,
+  halign=center,
+  frame hidden
+}
+\newtcolorbox{equationbox}[2][]{
+  ams align*,
+  fontupper=\scriptsize,
+  colback=#1!5,
+  colframe=#1!50!white,
+  title=#2,
+  boxrule=0pt,
+  halign=left,
+  frame hidden
+}
+
+
+\lstdefinelanguage{MaloyaText}{  
+  morekeywords={precedes, during, occurs, while, or, and, overlapping},
+  keywordstyle=\textbf,
+  emph={becomes,is,for,within,less,than,least,by},
+  emphstyle=\textit,
+  mathescape=true,
+  autogobble=true,
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  morecomment=[l]{//},
+  commentstyle=\color{gray}\ttfamily\tiny,
+  literate={\{}{{\CodeSymbolBold{\{}}}1
+  {\}}{{\CodeSymbolBold{\}}}}1
+}
+\lstdefinelanguage{Maloya}{  
+  morekeywords={Precedes, During, Occurs, Or, And, Overlapping, Precedes_less, During_less, Occurs_less, Overlapping_less, Precedes _greater, During _greater, Occurs _greater, Overlapping _greater},
+  keywordstyle=\bf,
+  emph={=,>},
+  emphstyle=\it,
+  mathescape=true,
+  autogobble=true,
+  basicstyle=\ttfamily\footnotesize,
+  morecomment=[l]{//},
+  commentstyle=\color{gray}\ttfamily\tiny,
+  captionpos=b,
+  columns=fullflexible
+}
+\lstdefinelanguage{EPLPseudoCode}{  
+  morekeywords={timer, where, within, interval, and, or, not, every,distinct,timestamp,Precedes, During, Occurs, Or, And, Overlapping},
+  keywordstyle=\it,
+  basicstyle=\ttfamily\footnotesize,
+  morecomment=[l]{//},
+  commentstyle=\color{gray}\ttfamily\tiny,
+  mathescape=true,
+  autogobble=true,
+  columns=fullflexible,
+  captionpos=b
+}
+\lstdefinelanguage{EPLPseudoCodeCompile}{  
+  morekeywords={timer, where, within, interval, and, or, not, every,distinct,timestamp,Precedes, During, Occurs, Or, And, Overlapping},
+  keywordstyle=\it,
+  basicstyle=\ttfamily\footnotesize,
+  morecomment=[l]{//},
+  commentstyle=\color{gray}\ttfamily\tiny,
+  mathescape=true,
+  autogobble=true,
+  columns=fullflexible,
+  captionpos=b,
+}
+\lstdefinelanguage{EPL}{  
+  morekeywords={timer, within, interval, and, or, not, every,distinct,select,pattern,from,where,insert,into,window,create,std,unique },
+  keywordstyle=\bf,
+  emph={StreamEvent,role,location,kind,status,user},
+  emphstyle=\it,
+  literate={[}{{\CodeSymbolBold{[}}}1
+  {]}{{\CodeSymbolBold{]}}}1,
+  basicstyle=\ttfamily\footnotesize,
+  morecomment=[l]{//},
+  commentstyle=\color{gray}\ttfamily,
+  mathescape=true,
+  autogobble=true,
+  columns=fullflexible,
+  captionpos=b
+}
+%\def\labelitemi{$\blacksquare$}
+%\renewcommand{\labelitemi}{$\blacksquare$}
+
+
+% \setbeamertemplate{footline}{ \usebeamerfont{footline}%
+%     \usebeamercolor[fg]{footline}%
+%     %\hspace{1em}%
+%     \hfill\insertframenumber \hspace*{.1cm}%/\inserttotalframenumber\hspace*{.1cm}
+% \vspace{2pt}
+% } 
+
+
+%\bibliography{biblio}
+
+\hyphenation{kitchen communication turned expressivité}
+
+\begin{document}
+%\title{Generalizing Smart Home Services Using \\Data Centric Paradigm}
+\title{Une approche événementielle pour le développement de services multi-métiers dédiés à l’assistance domiciliaire}
+%Data uniformization from Smart Home platform to extract real-time high level information to large scale}   
+\author{Adrien Carteron{ \\
+    \scriptsize{\url{http://phoenix.inria.fr}}}\\~\\
+  \textbf{Directeur de thèse~:} Charles Consel \\
+  \textbf{Co-Directeur de thèse~:} Nic Volanschi}
+\date{\today} 
+%\vspace*{-10mm}
+% \titlegraphic{\includegraphics[height=1cm]{gfx/logo_INRIA}
+%   \hfill
+%   \includegraphics[height=1cm]{gfx/logo_UB}}
+\nocite{*} 
+% \begin{frame}[noframenumbering] 
+% \titlepage
+% \end{frame}
+\institute{%
+  \includegraphics[height=1cm]{gfx/logo_INRIA}
+  \hfill
+  \includegraphics[height=1cm]{gfx/logo_UB}
+}
+
+\begingroup
+\setbeamertemplate{footline}{} 
+\begin{withoutheadline}
+\begin{frame}
+  \addtocounter{framenumber}{-1}
+  \titlepage
+  %\vspace*{-10mm}
+  % \includegraphics[height=1cm]{gfx/logo_UB}
+  % \hfill
+  % \includegraphics[height=1cm]{gfx/logo_INRIA}
+  %\author[Paul van der Walt]{Paul van der Walt \\
+  
+\end{frame}
+\end{withoutheadline}
+% \begin{frame}{Introduction}
+%   \begin{minipage}[t]{0.45\linewidth}
+%     %\onslide<1-2>{
+%       \begin{figure}
+%         \includegraphics[scale=0.20]{gfx/bricklayer.png}
+%       \end{figure}
+%     %}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[t]{0.45\linewidth}
+%     %\onslide<2-2>{
+%       \begin{figure}
+%         \includegraphics[scale=0.20]{gfx/introlol2.png}
+%       \end{figure}
+%     %}    
+%   \end{minipage}
+% \end{frame}
+\endgroup
+\include{intro}
+
+\begingroup
+\setbeamertemplate{footline}{} 
+\begin{frame}{Sommaire}
+\addtocounter{framenumber}{-1}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\endgroup
+% \begin{frame}
+%  \frametitle{Plan}
+%   \tableofcontents
+%   %\tableofcontents[hideothersubsections]
+% \end{frame}
+
+%\endgroup
+
+
+%\section{Related work}
+%\include{contextaware}
+\include{domain/domain}
+\include{contextaware}
+\include{maloya/maloya}
+%\include{compiler}
+
+\include{conclusion}
+
+% \include{improv}
+% \include{gener}
+%\include{dsl}
+
+
+% \begin{frame}[standout]
+% Thank you!
+% \end{frame}
+
+\appendix
+\begin{withoutheadline}
+\begin{frame}%[allowframebreaks]
+  \frametitle{Bibliographie}
+  %\bibliographystyle{apalike}
+   %\bibliographystyle{plain}
+  %{\tiny\bibliography{bibliography.bib}}
+\fullcite{carteron2016improving}
+%{\tiny\printbibliography[notcategory=fullcited,heading=none]}
+\end{frame}
+%\include{backup}
+\end{withoutheadline}
+
+\end{document}

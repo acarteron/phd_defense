@@ -1,0 +1,221 @@
+\section{Maloya: langage dédié aux services sensibles au contexte}
+
+
+\begin{frame}{Une approche dédiée à l'assistance domiciliaire}
+\begin{figure}
+  \includegraphics[scale=0.2]{approach_1.png}
+\end{figure}
+\end{frame}
+\begin{frame}{Une approche dédiée à l'assistance domiciliaire}
+\addtocounter{framenumber}{-1}
+\begin{figure}
+  \includegraphics[scale=0.2]{approach_2.png}
+\end{figure}
+\end{frame}
+\begin{frame}{Une approche dédiée à l'assistance domiciliaire}
+\addtocounter{framenumber}{-1}
+\begin{figure}
+  \includegraphics[scale=0.2]{approach_3.png}
+\end{figure}
+\end{frame}
+
+% \begin{frame}{Scénarios d'assistance domiciliaire}
+%   \begin{minipage}[t]{0.45\linewidth}
+%     \begin{table}[!h]
+%       \begin{footnotesize}
+%         \begin{tabular}{| p{2.cm} | p{5.5cm} |} \hline
+%           {\bf Nom} & {\bf Description} \\ \hline \hline
+%           %Alerte porte d'entrée & Entrance door \colorbox{blue!5}{is open} \colorbox{teal!10}{and}  \colorbox{blue!5}{is unattended} \colorbox{teal!10}{for 5 minutes} \\ \hline
+%           Réchauffer un plat surgelé  & Freezer \colorbox{checked!10}{gets used} and stove \colorbox{checked!10}{gets turned on} \colorbox{teal!10}{within 10 minutes} \colorbox{teal!10}{or} Freezer \colorbox{checked!10}{gets used} \colorbox{teal!10}{during} stove \colorbox{blue!5}{is on}, \colorbox{teal!10}{during} \colorbox{blue!5}{lunch time} \\ \hline
+%           %Dépendance de présence & The cupboard \colorbox{checked!10}{gets opened} in the kitchen, \colorbox{teal!10}{while} a presence in the kitchen \colorbox{blue!5}{is false} \\ \hline
+%           %Échec de communication & A sensor \colorbox{blue!5}{fails to communicate} \colorbox{teal!10}{for 24 hours} %and its status does not \dashuline{get updated} 
+%           %\\ \hline
+%         \end{tabular}
+%       \end{footnotesize}
+%     \end{table}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[t]{0.38\linewidth}
+%     Commonalités:
+%     \begin{itemize}
+%     \item Mesures d'environnement (physique et numérique).
+%     \item \colorbox{checked!10}{Évènements}.
+%     \item \colorbox{blue!5}{États}.
+%     \end{itemize}
+%     Variabilités:
+%     \begin{itemize}
+%     \item Niveaux d'abstraction.
+%     \item \colorbox{teal!10}{Contraintes d'interactions} (précédence, chevauchement, durée,$~\dots$).
+%     \end{itemize}
+%   \end{minipage}
+% \end{frame}
+
+% \begin{frame}{Scénarios d'assistance domiciliaire}
+%   \addtocounter{framenumber}{-1}
+%   \begin{minipage}[t]{0.45\linewidth}
+%     \begin{table}[!h]
+%       \begin{footnotesize}
+%         \begin{tabular}{| p{2.cm} | p{5.5cm} |} \hline
+%           {\bf Name} & {\bf Description} \\ \hline \hline
+%           %Alerte porte d'entrée & Entrance door \colorbox{blue!5}{is open} \colorbox{teal!10}{and}  \colorbox{blue!5}{is unattended} \colorbox{teal!10}{for 5 minutes} \\ \hline
+%           \cellcolor{red!10}{Réchauffer un plat surgelé}  & \cellcolor{red!10}{Freezer \colorbox{red!10}{gets used} and stove \colorbox{red!10}{gets turned on} \colorbox{red!10}{within 10 minutes} \colorbox{red!10}{or} Freezer \colorbox{red!10}{gets used} \colorbox{red!10}{during} stove \colorbox{red!10}{is on}, \colorbox{red!10}{during} \colorbox{red!10}{lunch time}} \\ \hline
+%           %Dépendance de présence & The cupboard \colorbox{checked!10}{gets opened} in the kitchen, \colorbox{teal!10}{while} a presence in the kitchen \colorbox{blue!5}{is false} \\ \hline
+%           %Échec de communication & A sensor \colorbox{blue!5}{fails to communicate} \colorbox{teal!10}{for 24 hours} %and its status does not \dashuline{get updated} 
+%           \\ \hline
+%         \end{tabular}
+%       \end{footnotesize}
+%     \end{table}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[t]{0.38\linewidth}
+%     Commonalités:
+%     \begin{itemize}
+%     \item Mesures d'environnement (physique et numérique).
+%     \item \colorbox{checked!10}{Évènements}.
+%     \item \colorbox{blue!5}{États}.
+%     \end{itemize}
+%     Variabilités:
+%     \begin{itemize}
+%     \item Niveaux d'abstraction.
+%     \item \colorbox{teal!10}{Contraintes d'interactions} (précédence, chevauchement, durée,$~\dots$).
+%     \end{itemize}
+%   \end{minipage}
+% \end{frame}
+
+\input{maloya/regles}
+
+
+% \begin{frame}[fragile]{Langage de règles}
+%   \begin{coloredbox}[gray]{Opérateur Occurs}
+%     \begin{footnotesize}
+%       \begin{tikzpicture}[node distance=\dx and \dy,
+%         >=latex,shorten >=2pt,shorten <=2pt,auto,
+%         semithick,initial distance=1cm,
+%         every initial by arrow/.style={*->} ]  
+%         \draw[gray!50,line width=0.1mm,dashed] (-1.5,-7.1) -- (-1.5,-8.7);
+%         \draw[gray!50,line width=0.1mm,dashed] (1.5,-7.1) -- (1.5,-8.7);
+%         \draw[gray!50,line width=0.1mm,dashed] (-.5,-7.1) -- (-.5,-8.7);
+%         \draw[] (-1.5,-7.5) 
+%         node[xshift=-.25 cm,yshift=.125cm] {{\tt e}} --(-.5,-7.5)--(-.5,-7.1)--(-.5,-7.5)--(.,-7.5)--(.,-7.1)--(.,-7.5)--(.5,-7.5)--(.5,-7.1)--(.5,-7.5) -- (1.5,-7.5);
+%         \draw[] (-1.5,-8.1) 
+%         node[xshift=-.25 cm,yshift=.125cm] {{\tt s}} -- (-1.,-8.1) -- (-1.,-7.7) -- (1.,-7.7) -- (1,-8.1) -- (1.5,-8.1);
+%         \draw[] (-1.5,-8.7) 
+%         node[xshift=-4.5 cm,yshift=1.cm] {La première occurrence d'un évènement {\tt e} durant l'état {\tt s}}
+%         node[xshift=-3 cm,yshift=.125cm] {{\tt e {\bf occurs while} s $\Leftrightarrow$ $Occurs(e,s)$}} -- (-.5,-8.7) -- (-.5,-8.3) -- (-.5,-8.7) -- (1.5,-8.7);
+%       \end{tikzpicture}
+%     \end{footnotesize}
+%   \end{coloredbox}
+%   \begin{footnotesize}
+%     \begin{equation*}
+%       \begin{split}
+%         \llangle\operatorname{Occurs}(E,[E_{sb},E_{se}])\rrangle(t)=(\exists t_1)(\forall t_2)(&E(t)\wedge \\
+%         &(t_1<t) \wedge\\
+%         &E_{sb}(t_1)\wedge \\
+%         &((t_1<t_2<t)\rightarrow \thicksim (E_{se}(t_2) \vee E(t_2))))
+%       \end{split}
+%     \end{equation*}
+%   \end{footnotesize}
+% \end{frame}
+
+\begin{frame}[fragile]{Opérateurs}
+  \begin{figure}[!h]
+    \includegraphics[scale=0.23]{operators.png}
+  \end{figure}
+\end{frame}
+\begin{frame}[fragile]{Opérateurs}
+  \addtocounter{framenumber}{-1}
+  \begin{figure}[!h]
+    \includegraphics[scale=0.23]{operators_1.png}
+  \end{figure}
+\end{frame}
+\begin{frame}[fragile]{Opérateurs}
+  \addtocounter{framenumber}{-1}
+  \begin{figure}[!h]
+    \includegraphics[scale=0.23]{operators_2.png}
+  \end{figure}
+\end{frame}
+\begin{frame}[fragile]{Opérateurs}
+  \addtocounter{framenumber}{-1}
+  \begin{figure}[!h]
+    \includegraphics[scale=0.23]{operators_3.png}
+  \end{figure}
+\end{frame}
+
+% \begin{frame}[fragile]{Définition d'un service}
+%   \begin{coloredbox}[gray]{Syntaxe textuelle}
+%   \begin{figure}[h]
+%     \begin{lstlisting}[language=MaloyaText]
+%       { ( freezer becomes open precedes 
+%         within 10 minutes stove becomes on )
+%         or
+%         ( freezer becomes open occurs while stove is on ) 
+%       } occurs while lunchTime
+%     \end{lstlisting}
+%     % \caption{Code Maloya textuel pour le service ``Lunch Reheat''.}
+%     \label{listing:maloyaText_reheat} 
+%   \end{figure}
+% \end{coloredbox}
+%  \begin{coloredbox}[gray]{Syntaxe abstraite}
+%   \begin{figure}[!h]
+%     \begin{lstlisting}[language=Maloya]
+%       Occurs(Or(
+%         Precedes_less(10min)(freezer => open, stove => on),
+%         Occurs(freezer => open, stove = on)),
+%       lunchTime)
+%     \end{lstlisting}
+%     %\caption{Code Maloya interne pour le service ``Lunch Reheat''.}
+%     \label{listing:maloya_reheat}
+%   \end{figure}
+% \end{coloredbox}
+% \end{frame}
+
+\input{maloya/service}
+
+
+\input{maloya/compilation}
+
+
+
+
+\begin{frame}{Validation avec le projet Domassist}
+\begin{minipage}{.45\linewidth}
+\onslide<1->{
+\begin{coloredbox}[black]{Expressivité}
+Redéfinition de 55 services.
+\end{coloredbox}
+}
+\vfill
+\onslide<3->{
+\begin{coloredbox}[black]{Performance}
+Latence inférieure à une seconde.\\
+Occupation mémoire de 352Mo en moyenne. \\
+55 règles, 129 installations, H24, 1 mois
+% response time of all our rules were always less than a second.\\
+% 352MB memory occupancy  (55 rules, data from 129 homes, running 24/7 for one month).
+\end{coloredbox}
+}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\linewidth}
+\onslide<2->{
+\begin{coloredbox}[black]{Exactitude}
+%Résultats vérifiés avec des scripts Perl simulant les services (55 règles, 129 installations, H24, 1 mois).
+\includegraphics[scale=0.225]{perl.png}
+\end{coloredbox}
+}
+\end{minipage}
+\vfill
+\end{frame}
+
+% \begin{frame}{Synthèse}
+%   \begin{itemize}
+%   \item Approche unifiée de définition de services.
+%   \item Règles manipulant des données de contextes à travers des évènement et des états.
+%   \item Abstraction masquant la complexité du traitement d'évènements complexes.
+%   \item Réactivité suffisante pour les besoins du domaine.
+%   \end{itemize}
+% % Unified approach to define services\\
+% % Rules manipulating context data as state and event (cover domain concepts).\\
+% % Abstraction hides event processing complexity (ease services expression).\\
+% % Reactivity sufficient to cover domain requirements.\\
+% \end{frame}
